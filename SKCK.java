@@ -1,8 +1,7 @@
-public class SKCK {
-  import java.util.ArrayList;
+import java.util.ArrayList;
 import java.util.Scanner;
 
-class SKCK {
+public class SKCK {
     private String nomorSurat;
     private String nama;
     private String nik;
@@ -16,7 +15,6 @@ class SKCK {
     private String namaPemohon;
     private String tanggal;
 
-    // Getter dan Setter
     public String getNomorSurat() {
         return nomorSurat;
     }
@@ -113,4 +111,4 @@ class SKCK {
         this.tanggal = tanggal;
     }
 }
-}
+
