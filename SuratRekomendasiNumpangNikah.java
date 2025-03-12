@@ -15,85 +15,84 @@ public class SuratRekomendasiNumpangNikah {
   public String getNomorSurat() {
     return nomorSurat;
   }
-  public void getNomorSurat(String nomorSurat) {
+  public void setNomorSurat(String nomorSurat) {
     this.nomorSurat = nomorSurat;
   }
 
   public String getTanggal() {
     return tanggal;
   }
-
-  public void getTanggal(String tanggal) {
+  public void setTanggal(String tanggal) {
     this.tanggal = tanggal;
   }
 
   public String getNamaMempelaiWanita() {
     return namaMempelaiWanita;
   }
-  public void getNamaMempelaiWanita(String namaMempelaiWanita) {
+  public void setNamaMempelaiWanita(String namaMempelaiWanita) {
     this.namaMempelaiWanita = namaMempelaiWanita;
   }
 
   public String getNamaOrtuMempelaiWanita() {
     return namaOrtuMempelaiWanita;
   }
-  public void getNamaOrtuMempelaiWanita(String namaOrtuMempelaiWanita) {
+  public void setNamaOrtuMempelaiWanita(String namaOrtuMempelaiWanita) {
     this.namaOrtuMempelaiWanita = namaOrtuMempelaiWanita;
   }
 
   public String getTTLWanita() {
     return TTLWanita;
   }
-  public void getTTLWanita(String TTLWanita) {
+  public void setTTLWanita(String TTLWanita) {
     this.TTLWanita = TTLWanita;
   }
 
   public String getPekerjaanWanita() {
     return pekerjaanWanita;
   }
-  public void getPekerjaanWanita(String pekerjaanWanita) {
+  public void setPekerjaanWanita(String pekerjaanWanita) {
     this.pekerjaanWanita = pekerjaanWanita;
   }
 
   public String getAlamatWanita() {
     return alamatWanita;
   }
-  public void getAlamatWanita(String alamatWanita) {
+  public void setAlamatWanita(String alamatWanita) {
     this.alamatWanita = alamatWanita;
   }
 
   public String getNamaMempelaiPria() {
     return namaMempelaiPria;
   }
-  public void getNamaMempelaiPria(String namaMempelaiPria) {
+  public void setNamaMempelaiPria(String namaMempelaiPria) {
     this.namaMempelaiPria = namaMempelaiPria;
   }
 
   public String getNamaOrtuMempelaiPria() {
     return namaOrtuMempelaiPria;
   }
-  public void getNamaOrtuMempelaiPria(String namaOrtuMempelaiPria) {
+  public void setNamaOrtuMempelaiPria(String namaOrtuMempelaiPria) {
     this.namaOrtuMempelaiPria = namaOrtuMempelaiPria;
   }
 
   public String getTTLPria() {
     return TTLPria;
   }
-  public void getTTLPria(String TTLPria) {
+  public void setTTLPria(String TTLPria) {
     this.TTLPria = TTLPria;
   }
 
   public String getPekerjaanPria() {
     return pekerjaanPria;
   }
-  public void getPekerjaanPria(String pekerjaanPria) {
+  public void setPekerjaanPria(String pekerjaanPria) {
     this.pekerjaanPria = pekerjaanPria;
   }
 
   public String getAlamatPria() {
     return alamatPria;
   }
-  public void getAlamatPria(String alamatPria) {
+  public void setAlamatPria(String alamatPria) {
     this.alamatPria = alamatPria;
   }
 }
