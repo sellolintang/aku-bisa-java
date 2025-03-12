@@ -78,18 +78,16 @@ public class SuratMasuk {
         System.out.println("Mengatur tanggal surat...");
     }
 
-    public void refresh() {
-        System.out.println("Merefresh data surat...");
-    }
-
+    // public void refresh() {
+    //     System.out.println("Merefresh data surat...");
+    // }
     public void back() {
         System.out.println("Kembali ke halaman sebelumnya...");
     }
 
-    public void clear() {
-        System.out.println("Menghapus data sementara...");
-    }
-
+    // public void clear() {
+    //     System.out.println("Menghapus data sementara...");
+    // }
     public void add() {
         System.out.println("Menambahkan surat masuk...");
     }

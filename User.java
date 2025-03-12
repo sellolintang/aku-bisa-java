@@ -6,19 +6,19 @@ public class User {
     private String username;
     private String password;
     private String role;
-    private ArrayList<User> usersList = new ArrayList();
+    private static ArrayList<User> usersList = new ArrayList();
 
-    public User() {
+    public void inisiate() {
         User user1 = new User();
         user1.setUsername("nugi");
         user1.setPassword("123");
         user1.setRole("admin");
         User user2 = new User();
-        user1.setUsername("farrel");
-        user1.setPassword("sello");
-        user1.setRole("operator");
-        this.usersList.add(user1);
-        this.usersList.add(user2);
+        user2.setUsername("farrel");
+        user2.setPassword("sello");
+        user2.setRole("operator");
+        usersList.add(user1);
+        usersList.add(user2);
     }
 
     public String getUsername() {
