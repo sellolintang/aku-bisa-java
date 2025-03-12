@@ -63,5 +63,4 @@ public class SuratKeluar {
         this.keterangan = keterangan;
     }
 
-
 }
