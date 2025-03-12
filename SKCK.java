@@ -110,5 +110,32 @@ public class SKCK {
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
+    public void search(){
+        //search data
+    }
+    public void setDate(){
+        // setting Date
+    }
+    public void refresh(){
+        //refresh
+    }
+    public void back(){
+        //back
+    }
+    public void clear(){
+        //clear
+    }
+    public void add(){
+        //add data
+    }
+    public void edit(){
+        //edit data
+    }
+    public void delete(){
+        //delete data
+    }
+    public void print(){
+        //print data
+    }
 }
 
