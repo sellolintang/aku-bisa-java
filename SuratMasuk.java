@@ -100,7 +100,14 @@ public class SuratMasuk {
         System.out.println("Menghapus surat masuk...");
     }
 
-    public void print() {
-        System.out.println("Mencetak surat masuk...");
+    public void print(SuratMasuk surat) {
+        System.out.println("===== Data Surat Masuk =====");
+        System.out.println("Tanggal (DD-MM-YYYY) : " + surat.getTanggalBulanTahun());
+        System.out.println("Nomor Surat          : " + surat.getNomorSurat());
+        System.out.println("Tanggal Surat        : " + surat.getTanggalSurat());
+        System.out.println("Perihal              : " + surat.getPerihal());
+        System.out.println("Instansi Pengirim    : " + surat.getInstansiPengirim());
+        System.out.println("Penanggung Jawab     : " + surat.getPenanggungJawab());
+        System.out.println("Keterangan           : " + surat.getKeterangan());
     }
 }
