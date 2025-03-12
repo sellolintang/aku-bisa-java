@@ -9,6 +9,7 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
+        boolean authenticated = false;
         // inisiasi user hanya sekali
         user.inisiate();
         while (!authenticated) {
@@ -16,25 +17,60 @@ public class Main {
             String username = scanner.next();
             System.out.print("Masukkan Password: ");
             String password = scanner.next();
-            String peran = user.login(username, password);
-            if (!peran.isEmpty()) {
-                authenticated = true;
-                System.out.println("LOGIN BERHASIL!");
+            authenticated = user.login(username, password);
+            if (!authenticated) {
+                System.out.println("Credentials wrongs");
             } else {
-                System.out.println("Username atau Password salah!");
-                authenticated = false;
+                System.out.println("LOGIN SUCCESS");
             }
         }
 
-        // contoh salah satu fungsi surat  masuk
-        SuratMasuk surat1 = new SuratMasuk();
-        surat1.setTanggalBulanTahun("12-03-2025");
-        surat1.setNomorSurat("SM-001");
-        surat1.setTanggalSurat("11-03-2025");
-        surat1.setPerihal("Undangan Seminar");
-        surat1.setInstansiPengirim("Universitas A");
-        surat1.setPenanggungJawab("Dr. Budi Santoso");
-        surat1.setKeterangan("Harap hadir tepat waktu");
-        surat1.print(surat1);
+        System.out.println("=== MENU PILIHAN ===");
+        System.out.println("1. SKCK");
+        System.out.println("2. Surat Keluar");
+        System.out.println("3. Surat Keterangan Tidak Mampu");
+        System.out.println("4. Surat Keterangan Usaha");
+        System.out.println("5. Surat Masuk");
+        System.out.println("6. Surat Nikah");
+        System.out.println("7. Surat Rekomendasi Numpang Nikah");
+        System.out.println("====================");
+        System.out.print("Silakan pilih opsi (1-7): ");
+        int opsi = Integer.parseInt(scanner.next());
+        switch (opsi) {
+            case 1:
+                SKCK skck = new SKCK();
+                break;
+            case 2:
+                SuratKeluar suratKeluar = new SuratKeluar();
+                break;
+            case 3:
+                SuratKeteranganTidakMampu suratKeteranganTidakMampu = new SuratKeteranganTidakMampu();
+                break;
+            case 4:
+                SuratKeteranganUsaha suratKeteranganUsaha = new SuratKeteranganUsaha();
+                break;
+            case 5:
+                SuratMasuk suratMasuk = new SuratMasuk();
+                break;
+            case 6:
+                SuratNikah suratNikah = new SuratNikah();
+                break;
+            case 7:
+                SuratRekomendasiNumpangNikah suratRNK = new SuratRekomendasiNumpangNikah();
+                break;
+            default:
+                break;
+        }
     }
 }
+
+// conto salah satu fungsi surat  masuks
+// SuratMasuk surat1 = new SuratMasuk();
+// surat1.setTanggalBulanTahun("12-03-2025");
+// surat1.setNomorSurat("SM-001");
+// surat1.setTanggalSurat("11-03-2025");
+// surat1.setPerihal("Undangan Seminar");
+// surat1.setInstansiPengirim("Universitas A");
+// surat1.setPenanggungJawab("Dr. Budi Santoso");
+// surat1.setKeterangan("Harap hadir tepat waktu");
+        // surat1.print(surat1);

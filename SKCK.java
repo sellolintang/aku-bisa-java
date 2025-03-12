@@ -1,7 +1,6 @@
-import java.util.ArrayList;
-import java.util.Scanner;
 
 public class SKCK {
+
     private String nomorSurat;
     private String nama;
     private String nik;
@@ -110,5 +109,8 @@ public class SKCK {
     public void setTanggal(String tanggal) {
         this.tanggal = tanggal;
     }
-}
 
+    public void print() {
+
+    }
+}
