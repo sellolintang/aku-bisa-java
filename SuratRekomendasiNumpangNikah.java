@@ -19,9 +19,9 @@ public class SuratRekomendasiNumpangNikah {
     this.nomorSurat = nomorSurat;
   }
 
-  // public String getTanggal() {
-  //   return tanggal;
-  // }
+  public String getTanggal() {
+    return tanggal;
+  }
 
   public void getTanggal(String tanggal) {
     this.tanggal = tanggal;
