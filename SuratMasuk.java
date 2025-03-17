@@ -104,7 +104,6 @@ public class SuratMasuk {
                 case 0:
                     status = true;
                     System.out.println("Keluar dari sistem. Terima kasih!");
-                    scanner.close();
                     break;
                 default:
                     System.out.println("Opsi tidak valid, coba lagi.");
@@ -128,16 +127,12 @@ public class SuratMasuk {
         System.out.println("Mengatur tanggal surat...");
     }
 
-    // public void refresh() {
-    //     System.out.println("Merefresh data surat...");
-    // }
     public void back() {
         System.out.println("Kembali ke halaman sebelumnya...");
     }
 
     public void add() {
         SuratMasuk surat = new SuratMasuk();
-
         System.out.println("\n=== Tambah Surat Masuk ===");
         System.out.print("Tanggal (DD-MM-YYYY): ");
         surat.setTanggalBulanTahun(scanner.nextLine());
@@ -165,7 +160,52 @@ public class SuratMasuk {
     }
 
     public void edit() {
-        System.out.println("Mengedit surat masuk...");
+        System.out.print("Masukkan nomor surat yang akan diedit: ");
+        String nomorSurat = scanner.nextLine();
+        boolean found = false;
+        for (SuratMasuk surat : suratMasukList) {
+            if (surat.nomorSurat.equals(nomorSurat)) {
+                System.out.println("\n=== Edit Surat Masuk ===");
+
+                System.out.print("Masukkan tanggal baru (kosongkan jika tidak ingin mengubah): ");
+                String newTanggal = scanner.nextLine();
+                if (!newTanggal.isEmpty()) {
+                    surat.tanggalBulanTahun = newTanggal;
+                }
+
+                System.out.print("Masukkan perihal baru (kosongkan jika tidak ingin mengubah): ");
+                String newPerihal = scanner.nextLine();
+                if (!newPerihal.isEmpty()) {
+                    surat.perihal = newPerihal;
+                }
+
+                System.out.print("Masukkan instansi pengirim baru (kosongkan jika tidak ingin mengubah): ");
+                String newInstansi = scanner.nextLine();
+                if (!newInstansi.isEmpty()) {
+                    surat.instansiPengirim = newInstansi;
+                }
+
+                System.out.print("Masukkan penanggung jawab baru (kosongkan jika tidak ingin mengubah): ");
+                String newPenanggungJawab = scanner.nextLine();
+                if (!newPenanggungJawab.isEmpty()) {
+                    surat.penanggungJawab = newPenanggungJawab;
+                }
+
+                System.out.print("Masukkan keterangan baru (kosongkan jika tidak ingin mengubah): ");
+                String newKeterangan = scanner.nextLine();
+                if (!newKeterangan.isEmpty()) {
+                    surat.keterangan = newKeterangan;
+                }
+
+                System.out.println("Surat berhasil diperbarui!");
+                found = true;
+                break;
+            }
+        }
+
+        if (!found) {
+            System.out.println("Surat tidak ditemukan.");
+        }
     }
 
     public void delete() {
