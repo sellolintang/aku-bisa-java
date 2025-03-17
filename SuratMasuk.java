@@ -75,12 +75,14 @@ public class SuratMasuk {
     public void ShowOption() {
         boolean status = false;
         while (!status) {
-            System.out.println("\nPilih opsi:");
+            System.out.println("====== SISTEM INFORMASI SURAT MASUK ======");
+            System.out.println("\nPILIH OPSI DIBAWAH INI:");
             System.out.println("1. Tambah Surat Masuk");
             System.out.println("2. Edit Surat Masuk");
             System.out.println("3. Hapus Surat Masuk");
             System.out.println("4. Cari Surat Masuk");
             System.out.println("5. Tampilkan Semua Surat Masuk");
+            System.out.println("6. Tampilkan berdasar tanggal");
             System.out.println("0. Keluar");
             System.out.print("Pilih opsi: ");
             int choice = scanner.nextInt();
@@ -101,6 +103,9 @@ public class SuratMasuk {
                 case 5:
                     printAll();
                     break;
+                case 6:
+                    setDate();
+                    break;
                 case 0:
                     status = true;
                     System.out.println("Keluar dari sistem. Terima kasih!");
@@ -115,20 +120,55 @@ public class SuratMasuk {
         System.out.print("Masukan nomor surat yang dicari: ");
         String tempNomorSurat = scanner.nextLine();
 
+        System.out.println("Daftar surat dengan nomor surat " + tempNomorSurat);
+        System.out.println("------------------------------------------------------------------------------------------------------");
+        boolean found = false;
         for (SuratMasuk data : suratMasukList) {
             if (data.getNomorSurat().equals(tempNomorSurat)) {
-                System.out.println(data);
-                break;
+                found = true;
+                System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
+                        data.getTanggalBulanTahun(),
+                        data.getNomorSurat(),
+                        data.getTanggalSurat(),
+                        data.getPerihal(),
+                        data.getInstansiPengirim(),
+                        data.getPenanggungJawab(),
+                        data.getKeterangan());
             }
         }
+        if (!found) {
+            System.out.println("Tidak ditemukan surat dengan nomor: " + tempNomorSurat);
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------");
     }
 
     public void setDate() {
-        System.out.println("Mengatur tanggal surat...");
-    }
-
-    public void back() {
-        System.out.println("Kembali ke halaman sebelumnya...");
+        if (!suratMasukList.isEmpty()) {
+            System.out.print("Masukkan Tanggal Surat yang dicari: ");
+            String tanggal = scanner.nextLine();
+            System.out.println("Daftar surat yang diterbitkan pada tanggal " + tanggal);
+            System.out.println("------------------------------------------------------------------------------------------------------");
+            boolean found = false;
+            for (SuratMasuk data : suratMasukList) {
+                if (data.getTanggalSurat().equals(tanggal)) {
+                    found = true;
+                    System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
+                            data.getTanggalBulanTahun(),
+                            data.getNomorSurat(),
+                            data.getTanggalSurat(),
+                            data.getPerihal(),
+                            data.getInstansiPengirim(),
+                            data.getPenanggungJawab(),
+                            data.getKeterangan());
+                }
+            }
+            if (!found) {
+                System.out.println("Tidak ditemukan surat yang diterbitkan pada tanggal " + tanggal);
+            }
+            System.out.println("------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("Belum ada surat masuk yang terdaftar.");
+        }
     }
 
     public void add() {
