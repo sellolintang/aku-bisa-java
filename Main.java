@@ -51,6 +51,7 @@ public class Main {
                 break;
             case 5:
                 SuratMasuk suratMasuk = new SuratMasuk();
+                suratMasuk.ShowOption();
                 break;
             case 6:
                 SuratNikah suratNikah = new SuratNikah();
@@ -63,14 +64,3 @@ public class Main {
         }
     }
 }
-
-// conto salah satu fungsi surat  masuks
-// SuratMasuk surat1 = new SuratMasuk();
-// surat1.setTanggalBulanTahun("12-03-2025");
-// surat1.setNomorSurat("SM-001");
-// surat1.setTanggalSurat("11-03-2025");
-// surat1.setPerihal("Undangan Seminar");
-// surat1.setInstansiPengirim("Universitas A");
-// surat1.setPenanggungJawab("Dr. Budi Santoso");
-// surat1.setKeterangan("Harap hadir tepat waktu");
-        // surat1.print(surat1);

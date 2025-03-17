@@ -12,50 +12,8 @@ public class SuratMasuk {
     private String penanggungJawab;
     private String keterangan;
     private Scanner scanner = new Scanner(System.in);
-
-    private ArrayList<SuratMasuk> suratMasukList = new ArrayList();
-
-    public SuratMasuk() {
-        // disini dibikin opsi
-        // oke  farrel
-        boolean status = false;
-
-        while (!status) {
-            System.out.println("\nPilih opsi:");
-            System.out.println("1. Tambah Surat Masuk");
-            System.out.println("2. Edit Surat Masuk");
-            System.out.println("3. Hapus Surat Masuk");
-            System.out.println("4. Cari Surat Masuk");
-            System.out.println("5. Tampilkan Semua Surat Masuk");
-            System.out.println("0. Keluar");
-            System.out.print("Pilih opsi: ");
-            int choice = scanner.nextInt();
-            scanner.nextLine(); // Menghindari bug newline
-            switch (choice) {
-                case 1:
-                    add();
-                    break;
-                case 2:
-                    edit();
-                    break;
-                case 3:
-                    delete();
-                    break;
-                case 4:
-                    search();
-                    break;
-                case 5:
-                    printAll();
-                case 0:
-                    status = true;
-                    System.out.println("Keluar dari sistem. Terima kasih!");
-                    scanner.close();
-                    break;
-                default:
-                    System.out.println("Opsi tidak valid, coba lagi.");
-            }
-        }
-    }
+    private ArrayList<SuratMasuk> suratMasukList = new ArrayList<>();
+    private boolean isRunning = false;
 
     public String getTanggalBulanTahun() {
         return tanggalBulanTahun;
@@ -114,6 +72,46 @@ public class SuratMasuk {
     }
 
     // Metode sesuai UML
+    public void ShowOption() {
+        boolean status = false;
+        while (!status) {
+            System.out.println("\nPilih opsi:");
+            System.out.println("1. Tambah Surat Masuk");
+            System.out.println("2. Edit Surat Masuk");
+            System.out.println("3. Hapus Surat Masuk");
+            System.out.println("4. Cari Surat Masuk");
+            System.out.println("5. Tampilkan Semua Surat Masuk");
+            System.out.println("0. Keluar");
+            System.out.print("Pilih opsi: ");
+            int choice = scanner.nextInt();
+            scanner.nextLine(); // Menghindari bug newline
+            switch (choice) {
+                case 1:
+                    add();
+                    break;
+                case 2:
+                    edit();
+                    break;
+                case 3:
+                    delete();
+                    break;
+                case 4:
+                    search();
+                    break;
+                case 5:
+                    printAll();
+                    break;
+                case 0:
+                    status = true;
+                    System.out.println("Keluar dari sistem. Terima kasih!");
+                    scanner.close();
+                    break;
+                default:
+                    System.out.println("Opsi tidak valid, coba lagi.");
+            }
+        }
+    }
+
     public void search() {
         System.out.print("Masukan nomor surat yang dicari: ");
         String tempNomorSurat = scanner.nextLine();
@@ -173,7 +171,6 @@ public class SuratMasuk {
     public void delete() {
         System.out.print("Masukkan nomor surat yang akan dihapus: ");
         String nomorSurat = scanner.nextLine();
-
         for (SuratMasuk data : suratMasukList) {
             if (data.getNomorSurat().equals(nomorSurat)) {
                 suratMasukList.remove(data);
@@ -188,13 +185,11 @@ public class SuratMasuk {
             System.out.println("Belum ada data surat masuk.");
             return;
         }
-
         System.out.println("\n=== Daftar Surat Masuk ===");
         System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
                 "Tanggal", "Nomor Surat", "Tgl Surat", "Perihal",
                 "Instansi", "Penanggung Jawab", "Keterangan");
         System.out.println("------------------------------------------------------------------------------------------------------");
-
         for (SuratMasuk suratM : suratMasukList) {
             System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
                     suratM.getTanggalBulanTahun(),
@@ -206,6 +201,7 @@ public class SuratMasuk {
                     suratM.getKeterangan());
         }
         System.out.println("------------------------------------------------------------------------------------------------------");
+
     }
 
 }
