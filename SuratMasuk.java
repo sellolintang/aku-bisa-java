@@ -13,7 +13,6 @@ public class SuratMasuk {
     private String keterangan;
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<SuratMasuk> suratMasukList = new ArrayList<>();
-    private boolean isRunning = false;
 
     public String getTanggalBulanTahun() {
         return tanggalBulanTahun;
