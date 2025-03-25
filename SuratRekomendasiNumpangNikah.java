@@ -1,6 +1,8 @@
+import java.util.ArrayList;
+import java.util.Scanner;
+
 public class SuratRekomendasiNumpangNikah {
   private String nomorSurat;
-  private String tanggal;
   private String namaMempelaiWanita;
   private String namaOrtuMempelaiWanita;
   private String TTLWanita;
@@ -11,6 +13,9 @@ public class SuratRekomendasiNumpangNikah {
   private String TTLPria;
   private String pekerjaanPria;
   private String alamatPria;
+  private String tanggal;
+  private Scanner scanner = new Scanner(System.in);
+  private ArrayList<SuratRekomendasiNumpangNikah> suratRekomendasiNumpangNikahList = new ArrayList<>();
 
   public String getNomorSurat() {
     return nomorSurat;
@@ -18,7 +23,77 @@ public class SuratRekomendasiNumpangNikah {
   public void setNomorSurat(String nomorSurat) {
     this.nomorSurat = nomorSurat;
   }
-
+  
+  public String getNamaMempelaiWanita() {
+    return namaMempelaiWanita;
+  }
+  public void setNamaMempelaiWanita(String namaMempelaiWanita) {
+    this.namaMempelaiWanita = namaMempelaiWanita;
+  }
+  
+  public String getNamaOrtuMempelaiWanita() {
+    return namaOrtuMempelaiWanita;
+  }
+  public void setNamaOrtuMempelaiWanita(String namaOrtuMempelaiWanita) {
+    this.namaOrtuMempelaiWanita = namaOrtuMempelaiWanita;
+  }
+  
+  public String getTTLWanita() {
+    return TTLWanita;
+  }
+  public void setTTLWanita(String TTLWanita) {
+    this.TTLWanita = TTLWanita;
+  }
+  
+  public String getPekerjaanWanita() {
+    return pekerjaanWanita;
+  }
+  public void setPekerjaanWanita(String pekerjaanWanita) {
+    this.pekerjaanWanita = pekerjaanWanita;
+  }
+  
+  public String getAlamatWanita() {
+    return alamatWanita;
+  }
+  public void setAlamatWanita(String alamatWanita) {
+    this.alamatWanita = alamatWanita;
+  }
+  
+  public String getNamaMempelaiPria() {
+    return namaMempelaiPria;
+  }
+  public void setNamaMempelaiPria(String namaMempelaiPria) {
+    this.namaMempelaiPria = namaMempelaiPria;
+  }
+  
+  public String getNamaOrtuMempelaiPria() {
+    return namaOrtuMempelaiPria;
+  }
+  public void setNamaOrtuMempelaiPria(String namaOrtuMempelaiPria) {
+    this.namaOrtuMempelaiPria = namaOrtuMempelaiPria;
+  }
+  
+  public String getTTLPria() {
+    return TTLPria;
+  }
+  public void setTTLPria(String TTLPria) {
+    this.TTLPria = TTLPria;
+  }
+  
+  public String getPekerjaanPria() {
+    return pekerjaanPria;
+  }
+  public void setPekerjaanPria(String pekerjaanPria) {
+    this.pekerjaanPria = pekerjaanPria;
+  }
+  
+  public String getAlamatPria() {
+    return alamatPria;
+  }
+  public void setAlamatPria(String alamatPria) {
+    this.alamatPria = alamatPria;
+  }
+  
   public String getTanggal() {
     return tanggal;
   }
@@ -26,73 +101,238 @@ public class SuratRekomendasiNumpangNikah {
     this.tanggal = tanggal;
   }
 
-  public String getNamaMempelaiWanita() {
-    return namaMempelaiWanita;
-  }
-  public void setNamaMempelaiWanita(String namaMempelaiWanita) {
-    this.namaMempelaiWanita = namaMempelaiWanita;
+  public void ShowOption() {
+    boolean status = false;
+    while (!status) {
+      System.out.println("====== SURAT REKOMENDASI NUMPANG NIKAH ======");
+      System.out.println("---------------------------------------------");
+      System.out.println("1. Tambah Surat");
+      System.out.println("2. Edit Surat");
+      System.out.println("3. Hapus Surat");
+      System.out.println("4. Cari Surat");
+      System.out.println("5. Tampilkan Semua Surat");
+      System.out.println("6. Tampilkan Berdasarkan Tanggal");
+      System.out.println("0. Keluar");
+      System.out.println("---------------------------------------------");
+      System.out.println("Pilih Opsi: ");
+      int choice = scanner.nextInt();
+
+      switch (choice) {
+        case 1:
+          add();
+          break;
+        case 2:
+          edit();
+          break;
+        case 3:
+          delete();
+          break;
+        case 4:
+          search();
+          break;
+        case 5:
+          printAll();
+          break;
+        case 6:
+          setDate();
+          break;
+        case 0:
+          System.out.println("Keluar dari sistem. Terima kasih!");
+          break;
+        default:
+          System.out.println("Opsi tidak valid, coba lagi.");
+          break;
+      }
+    }
   }
 
-  public String getNamaOrtuMempelaiWanita() {
-    return namaOrtuMempelaiWanita;
-  }
-  public void setNamaOrtuMempelaiWanita(String namaOrtuMempelaiWanita) {
-    this.namaOrtuMempelaiWanita = namaOrtuMempelaiWanita;
+  public void add() {
+    SuratRekomendasiNumpangNikah surat = new SuratRekomendasiNumpangNikah();
+
+    System.out.println("\n====== Tambah Surat ======");
+    System.out.println("--------------------------");
+    System.out.println("Nomor Surat: ");
+    surat.setNomorSurat(scanner.nextLine());
+
+    System.out.println("Tanggal Pernikahan (DD-MM-YYYY): ");
+    surat.setTanggal(scanner.nextLine());
+
+    System.out.println("\n--- Data Mempelai Wanita ---");
+    System.out.println("Nama: ");
+    surat.setNamaMempelaiWanita(scanner.nextLine());
+
+    System.out.println("Tempat Tanggal Lahir: ");
+    surat.setTTLWanita(scanner.nextLine());
+
+    System.out.println("Alamat: ");
+    surat.setAlamatWanita(scanner.nextLine());
+
+    System.out.println("Pekerjaan: ");
+    surat.setPekerjaanWanita(scanner.nextLine());
+
+    System.out.println("Nama Orang Tua: ");
+    surat.setNamaOrtuMempelaiWanita(scanner.nextLine());
+
+    System.out.println("\n--- Data Mempelai Pria ---");
+    System.out.println("Nama: ");
+    surat.setNamaMempelaiPria(scanner.nextLine());
+
+    System.out.println("Tempat Tanggal Lahir: ");
+    surat.setTTLPria(scanner.nextLine());
+
+    System.out.println("Alamat: ");
+    surat.setAlamatPria(scanner.nextLine());
+
+    System.out.println("Pekerjaan: ");
+    surat.setPekerjaanPria(scanner.nextLine());
+
+    System.out.println("Nama Orang Tua: ");
+    surat.setNamaOrtuMempelaiPria(scanner.nextLine());
   }
 
-  public String getTTLWanita() {
-    return TTLWanita;
-  }
-  public void setTTLWanita(String TTLWanita) {
-    this.TTLWanita = TTLWanita;
+  public void edit() {
+    System.out.println("\n====== Edit Surat ======");
+    System.out.println("------------------------");
+    System.out.println("Masukan Nomor Surat: ");
+    String nomorSurat = scanner.nextLine();
+    System.out.println("\nNote: Kosongkan jika tidak ingin mengubah");
+    System.out.println();
+    
+    boolean found = false;
+    for (SuratRekomendasiNumpangNikah surat : suratRekomendasiNumpangNikahList) {
+      if (surat.nomorSurat.equals(nomorSurat)) {
+        System.out.println("Tanggal Pernikahan (DD-MM-YYY): ");
+        String newTanggal = scanner.nextLine();
+        if (!newTanggal.isEmpty()) {
+          surat.tanggal = newTanggal;
+        }
+
+        System.out.println("\n--- Data Mempelai Wanita ---");
+        System.out.println("Nama: ");
+        String newNamaMempelaiWanita = scanner.nextLine();
+        if (!newNamaMempelaiWanita.isEmpty()) {
+          surat.namaMempelaiWanita = newNamaMempelaiWanita;
+        }
+
+        System.out.println("Tempat Tanggal Lahir: ");
+        String newTTLWanita = scanner.nextLine();
+        if (!newTTLWanita.isEmpty()) {
+          surat.TTLWanita = newTTLWanita;
+        }
+
+        System.out.println("Alamat: ");
+        String newAlamatWanita = scanner.nextLine();
+        if (!newAlamatWanita.isEmpty()) {
+          surat.alamatWanita = newAlamatWanita;
+        }
+
+        System.out.println("Pekerjaan: ");
+        String newPekerjaanWanita = scanner.nextLine();
+        if (!newPekerjaanWanita.isEmpty()) {
+          surat.pekerjaanWanita = newPekerjaanWanita;
+        }
+
+        System.out.println("Nama Orang Tua: ");
+        String newNamaOrtuMempelaiWanita = scanner.nextLine();
+        if (!newNamaOrtuMempelaiWanita.isEmpty()) {
+          surat.namaOrtuMempelaiWanita = newNamaOrtuMempelaiWanita;
+        }
+
+        System.out.println("\n--- Data Mempelai Pria ---");
+        System.out.println("Nama: ");
+        String newNamaMempelaiPria = scanner.nextLine();
+        if (!newNamaMempelaiPria.isEmpty()) {
+          surat.namaMempelaiPria = newNamaMempelaiPria;
+        }
+
+        System.out.println("Tempat Tanggal Lahir: ");
+        String newTTLPria = scanner.nextLine();
+        if (!newTTLPria.isEmpty()) {
+          surat.TTLPria = newTTLPria;
+        }
+
+        System.out.println("Alamat: ");
+        String newAlamatPria = scanner.nextLine();
+        if (!newAlamatPria.isEmpty()) {
+          surat.alamatPria = newAlamatPria;
+        }
+
+        System.out.println("Pekerjaan: ");
+        String newPekerjaanPria = scanner.nextLine();
+        if (!newPekerjaanPria.isEmpty()) {
+          surat.pekerjaanPria = newPekerjaanPria;
+        }
+
+        System.out.println("Nama Orang Tua: ");
+        String newNamaOrtuMempelaiPria = scanner.nextLine();
+        if (!newNamaOrtuMempelaiPria.isEmpty()) {
+          surat.namaOrtuMempelaiPria = newNamaOrtuMempelaiPria;
+        }
+
+        System.out.println("Surat berhasil diperbarui!");
+          found = true;
+          break;
+      }
+
+      if (!found) {
+        System.out.println("Surat tidak ditemukan.");
+      }
+    }
   }
 
-  public String getPekerjaanWanita() {
-    return pekerjaanWanita;
-  }
-  public void setPekerjaanWanita(String pekerjaanWanita) {
-    this.pekerjaanWanita = pekerjaanWanita;
-  }
-
-  public String getAlamatWanita() {
-    return alamatWanita;
-  }
-  public void setAlamatWanita(String alamatWanita) {
-    this.alamatWanita = alamatWanita;
-  }
-
-  public String getNamaMempelaiPria() {
-    return namaMempelaiPria;
-  }
-  public void setNamaMempelaiPria(String namaMempelaiPria) {
-    this.namaMempelaiPria = namaMempelaiPria;
+  public void delete() {
+    System.out.println("\n====== Hapus Surat ======");
+    System.out.println("-------------------------");
+    System.out.println("Masukan Nomor Surat: ");
+    String nomorSurat = scanner.nextLine();
+    for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
+      if (data.getNomorSurat().equals(nomorSurat)) {
+        suratRekomendasiNumpangNikahList.remove(data);
+        System.out.println("Surat berhasil dihapus!");
+        break;
+      }
+    }
   }
 
-  public String getNamaOrtuMempelaiPria() {
-    return namaOrtuMempelaiPria;
-  }
-  public void setNamaOrtuMempelaiPria(String namaOrtuMempelaiPria) {
-    this.namaOrtuMempelaiPria = namaOrtuMempelaiPria;
+  public void search() {
+    System.out.println("\n====== Cari Surat ======");
+    System.out.println("------------------------");
+    System.out.println("Masukan Nomor Surat: ");
+    String tempNomorSurat = scanner.nextLine();
+
+    System.out.println("------------------------");
+    boolean found = false;
+    for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
+      if (data.getNomorSurat().equals(tempNomorSurat)) {
+        found = true;
+        System.out.println("Tanggal Pernikahan: " + data.getTanggal());
+        System.out.println("\n--- Data Mempelai Wanita ---");
+        System.out.println("Nama: " + data.getNamaMempelaiWanita());
+        System.out.println("Tempat Tanggal Lahir: " + data.getTTLWanita());
+        System.out.println("Alamat: " + data.getAlamatWanita());
+        System.out.println("Pekerjaan: " + data.getPekerjaanWanita());
+        System.out.println("Nama Orang Tua: " + data.getNamaOrtuMempelaiWanita());
+        System.out.println("\n--- Data Mempelai Pria ---");
+        System.out.println("Nama: " + data.getNamaMempelaiPria());
+        System.out.println("Tempat Tanggal Lahir: " + data.getTTLPria());
+        System.out.println("Alamat: " + data.getAlamatPria());
+        System.out.println("Pekerjaan: " + data.getPekerjaanPria());
+        System.out.println("Nama Orang Tua: " + data.getNamaOrtuMempelaiPria());
+      }
+
+      if (!found) {
+        System.out.println("Tidak ditemukan surat dengan nomor: " + tempNomorSurat);
+      }
+    }
+    System.out.println("------------------------");
   }
 
-  public String getTTLPria() {
-    return TTLPria;
-  }
-  public void setTTLPria(String TTLPria) {
-    this.TTLPria = TTLPria;
+  public void printAll() {
+
   }
 
-  public String getPekerjaanPria() {
-    return pekerjaanPria;
-  }
-  public void setPekerjaanPria(String pekerjaanPria) {
-    this.pekerjaanPria = pekerjaanPria;
+  public void setDate() {
+
   }
 
-  public String getAlamatPria() {
-    return alamatPria;
-  }
-  public void setAlamatPria(String alamatPria) {
-    this.alamatPria = alamatPria;
-  }
 }

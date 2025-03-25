@@ -13,12 +13,7 @@ public class User {
         user1.setUsername("nugi");
         user1.setPassword("123");
         user1.setRole("admin");
-        User user2 = new User();
-        user2.setUsername("farrel");
-        user2.setPassword("sello");
-        user2.setRole("operator");
         usersList.add(user1);
-        usersList.add(user2);
     }
 
     public String getUsername() {
@@ -46,15 +41,13 @@ public class User {
     }
 
     // Method login
-    public String login(String username, String password) {
-        String peran = "";
+    public boolean login(String username, String password) {
         for (User tempUser : usersList) {
             if (tempUser.getUsername().equals(username) && tempUser.getPassword().equals(password)) {
-                peran = tempUser.getRole();
-                break;
+                return true;
             }
         }
-        return peran;
+        return false;
     }
 
     // Method logout
