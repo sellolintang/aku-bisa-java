@@ -115,8 +115,9 @@ public class SuratRekomendasiNumpangNikah {
       System.out.println("6. Tampilkan Berdasarkan Tanggal");
       System.out.println("0. Keluar");
       System.out.println("---------------------------------------------");
-      System.out.println("Pilih Opsi: ");
+      System.out.print("Pilih Opsi: ");
       int choice = scanner.nextInt();
+      scanner.nextLine();
 
       switch (choice) {
         case 1:
@@ -152,42 +153,42 @@ public class SuratRekomendasiNumpangNikah {
     System.out.println("\n----------------------------------------------------");
     System.out.println("====== Tambah Surat Rekomendasi Numpang Nikah ======");
     System.out.println("----------------------------------------------------");
-    System.out.println("Nomor Surat: ");
+    System.out.print("Nomor Surat: ");
     surat.setNomorSurat(scanner.nextLine());
 
-    System.out.println("Tanggal (DD-MM-YYYY): ");
+    System.out.print("Tanggal (DD-MM-YYYY): ");
     surat.setTanggal(scanner.nextLine());
 
     System.out.println("\n--- Data Mempelai Wanita ---");
-    System.out.println("Nama: ");
+    System.out.print("Nama: ");
     surat.setNamaMempelaiWanita(scanner.nextLine());
 
-    System.out.println("Tempat Tanggal Lahir: ");
+    System.out.print("Tempat Tanggal Lahir: ");
     surat.setTTLWanita(scanner.nextLine());
 
-    System.out.println("Alamat: ");
+    System.out.print("Alamat: ");
     surat.setAlamatWanita(scanner.nextLine());
 
-    System.out.println("Pekerjaan: ");
+    System.out.print("Pekerjaan: ");
     surat.setPekerjaanWanita(scanner.nextLine());
 
-    System.out.println("Nama Orang Tua: ");
+    System.out.print("Nama Orang Tua: ");
     surat.setNamaOrtuMempelaiWanita(scanner.nextLine());
 
     System.out.println("\n--- Data Mempelai Pria ---");
-    System.out.println("Nama: ");
+    System.out.print("Nama: ");
     surat.setNamaMempelaiPria(scanner.nextLine());
 
-    System.out.println("Tempat Tanggal Lahir: ");
+    System.out.print("Tempat Tanggal Lahir: ");
     surat.setTTLPria(scanner.nextLine());
 
-    System.out.println("Alamat: ");
+    System.out.print("Alamat: ");
     surat.setAlamatPria(scanner.nextLine());
 
-    System.out.println("Pekerjaan: ");
+    System.out.print("Pekerjaan: ");
     surat.setPekerjaanPria(scanner.nextLine());
 
-    System.out.println("Nama Orang Tua: ");
+    System.out.print("Nama Orang Tua: ");
     surat.setNamaOrtuMempelaiPria(scanner.nextLine());
   }
 
@@ -195,7 +196,7 @@ public class SuratRekomendasiNumpangNikah {
     System.out.println("\n--------------------------------------------------");
     System.out.println("====== Edit Surat Rekomendasi Numpang Nikah ======");
     System.out.println("--------------------------------------------------");
-    System.out.println("Masukan Nomor Surat: ");
+    System.out.print("Masukan Nomor Surat: ");
     String nomorSurat = scanner.nextLine();
     System.out.println("\nNote: Kosongkan jika tidak ingin mengubah");
     System.out.println();
@@ -203,69 +204,69 @@ public class SuratRekomendasiNumpangNikah {
     boolean found = false;
     for (SuratRekomendasiNumpangNikah surat : suratRekomendasiNumpangNikahList) {
       if (surat.nomorSurat.equals(nomorSurat)) {
-        System.out.println("Tanggal (DD-MM-YYY): ");
+        System.out.print("Tanggal (DD-MM-YYY): ");
         String newTanggal = scanner.nextLine();
         if (!newTanggal.isEmpty()) {
           surat.tanggal = newTanggal;
         }
 
-        System.out.println("\n--- Data Mempelai Wanita ---");
-        System.out.println("Nama: ");
+        System.out.print("\n--- Data Mempelai Wanita ---");
+        System.out.print("Nama: ");
         String newNamaMempelaiWanita = scanner.nextLine();
         if (!newNamaMempelaiWanita.isEmpty()) {
           surat.namaMempelaiWanita = newNamaMempelaiWanita;
         }
 
-        System.out.println("Tempat Tanggal Lahir: ");
+        System.out.print("Tempat Tanggal Lahir: ");
         String newTTLWanita = scanner.nextLine();
         if (!newTTLWanita.isEmpty()) {
           surat.TTLWanita = newTTLWanita;
         }
 
-        System.out.println("Alamat: ");
+        System.out.print("Alamat: ");
         String newAlamatWanita = scanner.nextLine();
         if (!newAlamatWanita.isEmpty()) {
           surat.alamatWanita = newAlamatWanita;
         }
 
-        System.out.println("Pekerjaan: ");
+        System.out.print("Pekerjaan: ");
         String newPekerjaanWanita = scanner.nextLine();
         if (!newPekerjaanWanita.isEmpty()) {
           surat.pekerjaanWanita = newPekerjaanWanita;
         }
 
-        System.out.println("Nama Orang Tua: ");
+        System.out.print("Nama Orang Tua: ");
         String newNamaOrtuMempelaiWanita = scanner.nextLine();
         if (!newNamaOrtuMempelaiWanita.isEmpty()) {
           surat.namaOrtuMempelaiWanita = newNamaOrtuMempelaiWanita;
         }
 
-        System.out.println("\n--- Data Mempelai Pria ---");
+        System.out.print("\n--- Data Mempelai Pria ---");
         System.out.println("Nama: ");
         String newNamaMempelaiPria = scanner.nextLine();
         if (!newNamaMempelaiPria.isEmpty()) {
           surat.namaMempelaiPria = newNamaMempelaiPria;
         }
 
-        System.out.println("Tempat Tanggal Lahir: ");
+        System.out.print("Tempat Tanggal Lahir: ");
         String newTTLPria = scanner.nextLine();
         if (!newTTLPria.isEmpty()) {
           surat.TTLPria = newTTLPria;
         }
 
-        System.out.println("Alamat: ");
+        System.out.print("Alamat: ");
         String newAlamatPria = scanner.nextLine();
         if (!newAlamatPria.isEmpty()) {
           surat.alamatPria = newAlamatPria;
         }
 
-        System.out.println("Pekerjaan: ");
+        System.out.print("Pekerjaan: ");
         String newPekerjaanPria = scanner.nextLine();
         if (!newPekerjaanPria.isEmpty()) {
           surat.pekerjaanPria = newPekerjaanPria;
         }
 
-        System.out.println("Nama Orang Tua: ");
+        System.out.print("Nama Orang Tua: ");
         String newNamaOrtuMempelaiPria = scanner.nextLine();
         if (!newNamaOrtuMempelaiPria.isEmpty()) {
           surat.namaOrtuMempelaiPria = newNamaOrtuMempelaiPria;
@@ -286,7 +287,7 @@ public class SuratRekomendasiNumpangNikah {
     System.out.println("\n---------------------------------------------------");
     System.out.println("====== Hapus Surat Rekomendasi Numpang Nikah ======");
     System.out.println("---------------------------------------------------");
-    System.out.println("Masukan Nomor Surat: ");
+    System.out.print("Masukan Nomor Surat: ");
     String nomorSurat = scanner.nextLine();
     for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
       if (data.getNomorSurat().equals(nomorSurat)) {
@@ -301,7 +302,7 @@ public class SuratRekomendasiNumpangNikah {
     System.out.println("\n--------------------------------------------------");
     System.out.println("====== Cari Surat Rekomendasi Numpang Nikah ======");
     System.out.println("--------------------------------------------------");
-    System.out.println("Masukan Nomor Surat: ");
+    System.out.print("Masukan Nomor Surat: ");
     String tempNomorSurat = scanner.nextLine();
 
     System.out.println("------------------------");

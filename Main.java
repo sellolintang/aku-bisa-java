@@ -60,6 +60,7 @@ public class Main {
                     break;
                 case 7:
                     SuratRekomendasiNumpangNikah suratRNK = new SuratRekomendasiNumpangNikah();
+                    suratRNK.ShowOption();
                     break;
                 case 0:
                     endMenu = true;
