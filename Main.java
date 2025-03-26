@@ -46,9 +46,11 @@ public class Main {
                     break;
                 case 3:
                     SuratKeteranganTidakMampu suratKeteranganTidakMampu = new SuratKeteranganTidakMampu();
+                    suratKeteranganTidakMampu.ShowOption();
                     break;
                 case 4:
                     SuratKeteranganUsaha suratKeteranganUsaha = new SuratKeteranganUsaha();
+                    suratKeteranganUsaha.ShowOption();
                     break;
                 case 5:
                     SuratMasuk suratMasuk = new SuratMasuk();
