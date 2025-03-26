@@ -9,7 +9,6 @@ public class Main {
     public static Scanner scanner = new Scanner(System.in);
 
     public static void main(String[] args) {
-        boolean authenticated = false;
         // inisiasi user hanya sekali
         user.inisiate();
         while (!authenticated) {

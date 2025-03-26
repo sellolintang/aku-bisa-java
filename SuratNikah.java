@@ -1,6 +1,9 @@
+
 import java.util.ArrayList;
 import java.util.Scanner;
+
 public class SuratNikah {
+
     private String nomorSurat;
     private String nama;
     private String tempatTanggalLahir;
@@ -12,7 +15,7 @@ public class SuratNikah {
     private String alamat;
     private Scanner scanner = new Scanner(System.in);
     private ArrayList<SuratNikah> suratNikahList = new ArrayList<>();
-    
+
     public String getNomorSurat() {
         return nomorSurat;
     }
@@ -48,7 +51,7 @@ public class SuratNikah {
     public int getNoKTP() {
         return noKTP;
     }
-    
+
     public void setNoKTP(int noKTP) {
         this.noKTP = noKTP;
     }
@@ -80,7 +83,7 @@ public class SuratNikah {
     public String getAlamat() {
         return alamat;
     }
-    
+
     public void setAlamat(String alamat) {
         this.alamat = alamat;
     }
@@ -117,7 +120,7 @@ public class SuratNikah {
                     printAll();
                     break;
                 case 6:
-                    setDate();
+                    // setDate();
                     break;
                 case 0:
                     status = true;
@@ -283,15 +286,15 @@ public class SuratNikah {
         System.out.println("------------------------------------------------------------------------------------------------------");
         for (SuratNikah data : suratNikahList) {
             System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
-                        data.getNomorSurat(),
-                        data.getNama(),
-                        data.getTempatTanggalLahir(),
-                        data.getAgama(),
-                        data.getNoKTP(),
-                        data.getKewarganegaraan(),
-                        data.getStatusPerkawinan(),
-                        data.getPekerjaan(),
-                        data.getAlamat());
+                    data.getNomorSurat(),
+                    data.getNama(),
+                    data.getTempatTanggalLahir(),
+                    data.getAgama(),
+                    data.getNoKTP(),
+                    data.getKewarganegaraan(),
+                    data.getStatusPerkawinan(),
+                    data.getPekerjaan(),
+                    data.getAlamat());
         }
         System.out.println("------------------------------------------------------------------------------------------------------");
 
@@ -325,5 +328,4 @@ public class SuratNikah {
     //         System.out.println("Belum ada surat masuk yang terdaftar.");
     //     }
     // }
-
 }

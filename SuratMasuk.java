@@ -85,7 +85,7 @@ public class SuratMasuk {
             System.out.println("0. Keluar");
             System.out.print("Pilih opsi: ");
             int choice = scanner.nextInt();
-            scanner.nextLine(); // Menghindari bug newline
+            scanner.nextLine();
             switch (choice) {
                 case 1:
                     add();
