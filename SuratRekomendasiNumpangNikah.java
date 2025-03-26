@@ -104,6 +104,7 @@ public class SuratRekomendasiNumpangNikah {
   public void ShowOption() {
     boolean status = false;
     while (!status) {
+      System.out.println("\n---------------------------------------------");
       System.out.println("====== SURAT REKOMENDASI NUMPANG NIKAH ======");
       System.out.println("---------------------------------------------");
       System.out.println("1. Tambah Surat");
@@ -148,13 +149,13 @@ public class SuratRekomendasiNumpangNikah {
 
   public void add() {
     SuratRekomendasiNumpangNikah surat = new SuratRekomendasiNumpangNikah();
-
-    System.out.println("\n====== Tambah Surat ======");
-    System.out.println("--------------------------");
+    System.out.println("\n----------------------------------------------------");
+    System.out.println("====== Tambah Surat Rekomendasi Numpang Nikah ======");
+    System.out.println("----------------------------------------------------");
     System.out.println("Nomor Surat: ");
     surat.setNomorSurat(scanner.nextLine());
 
-    System.out.println("Tanggal Pernikahan (DD-MM-YYYY): ");
+    System.out.println("Tanggal (DD-MM-YYYY): ");
     surat.setTanggal(scanner.nextLine());
 
     System.out.println("\n--- Data Mempelai Wanita ---");
@@ -191,8 +192,9 @@ public class SuratRekomendasiNumpangNikah {
   }
 
   public void edit() {
-    System.out.println("\n====== Edit Surat ======");
-    System.out.println("------------------------");
+    System.out.println("\n--------------------------------------------------");
+    System.out.println("====== Edit Surat Rekomendasi Numpang Nikah ======");
+    System.out.println("--------------------------------------------------");
     System.out.println("Masukan Nomor Surat: ");
     String nomorSurat = scanner.nextLine();
     System.out.println("\nNote: Kosongkan jika tidak ingin mengubah");
@@ -201,7 +203,7 @@ public class SuratRekomendasiNumpangNikah {
     boolean found = false;
     for (SuratRekomendasiNumpangNikah surat : suratRekomendasiNumpangNikahList) {
       if (surat.nomorSurat.equals(nomorSurat)) {
-        System.out.println("Tanggal Pernikahan (DD-MM-YYY): ");
+        System.out.println("Tanggal (DD-MM-YYY): ");
         String newTanggal = scanner.nextLine();
         if (!newTanggal.isEmpty()) {
           surat.tanggal = newTanggal;
@@ -281,8 +283,9 @@ public class SuratRekomendasiNumpangNikah {
   }
 
   public void delete() {
-    System.out.println("\n====== Hapus Surat ======");
-    System.out.println("-------------------------");
+    System.out.println("\n---------------------------------------------------");
+    System.out.println("====== Hapus Surat Rekomendasi Numpang Nikah ======");
+    System.out.println("---------------------------------------------------");
     System.out.println("Masukan Nomor Surat: ");
     String nomorSurat = scanner.nextLine();
     for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
@@ -295,8 +298,9 @@ public class SuratRekomendasiNumpangNikah {
   }
 
   public void search() {
-    System.out.println("\n====== Cari Surat ======");
-    System.out.println("------------------------");
+    System.out.println("\n--------------------------------------------------");
+    System.out.println("====== Cari Surat Rekomendasi Numpang Nikah ======");
+    System.out.println("--------------------------------------------------");
     System.out.println("Masukan Nomor Surat: ");
     String tempNomorSurat = scanner.nextLine();
 
@@ -305,7 +309,7 @@ public class SuratRekomendasiNumpangNikah {
     for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
       if (data.getNomorSurat().equals(tempNomorSurat)) {
         found = true;
-        System.out.println("Tanggal Pernikahan: " + data.getTanggal());
+        System.out.println("Tanggal: " + data.getTanggal());
         System.out.println("\n--- Data Mempelai Wanita ---");
         System.out.println("Nama: " + data.getNamaMempelaiWanita());
         System.out.println("Tempat Tanggal Lahir: " + data.getTTLWanita());
@@ -328,11 +332,76 @@ public class SuratRekomendasiNumpangNikah {
   }
 
   public void printAll() {
+    if (suratRekomendasiNumpangNikahList.isEmpty()) {
+      System.out.println("Belum ada data surat masuk.");
+      return;
+    }
 
+    System.out.println("\n------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    System.out.println("============================================================= Daftar Surat Rekomendasi Numpang Nikah =============================================================");
+    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    System.out.println("\t\t\t|Data Mempelai Wanita|\t\t\t\t\t\t\t\t|Data Mempelai Pria|");
+    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    System.out.printf("%-4s %-10s %-10s %-24s %-10s %-10s %-20s %-10s %-22s %-10s %-10s %-10s%n",
+            "No", "Tanggal", "Nama", "TTL", "Alamat", "Pekerjaan", "Nama Ortu",
+            "Nama", "TTL", "Alamat", "Pekerjaan", "Nama Ortu");
+    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    
+    for (SuratRekomendasiNumpangNikah dataSurat :suratRekomendasiNumpangNikahList) {
+      System.out.printf("%-4s %-10s %-10s %-14s %-10s %-10s %-20s %-10s %-22s %-10s %-10s %-10s%n",
+                        dataSurat.getNomorSurat(),
+                        dataSurat.getTanggal(),
+                        dataSurat.getNamaMempelaiWanita(),
+                        dataSurat.getTTLWanita(),
+                        dataSurat.getAlamatWanita(),
+                        dataSurat.getPekerjaanWanita(),
+                        dataSurat.getNamaOrtuMempelaiWanita(),
+                        dataSurat.getNamaMempelaiPria(),
+                        dataSurat.getTTLPria(),
+                        dataSurat.getAlamatPria(),
+                        dataSurat.getPekerjaanPria(),
+                        dataSurat.getNamaOrtuMempelaiPria());
+    }
+    System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
   }
 
   public void setDate() {
+    if (!suratRekomendasiNumpangNikahList.isEmpty()) {
+      System.out.print("Masukkan Tanggal Surat yang dicari: ");
+      String cariTanggal = scanner.nextLine();
+      System.out.println("\nDaftar surat yang diterbitkan pada tanggal " + tanggal);
+      System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+      System.out.printf("%-4s %-10s %-10s %-24s %-10s %-10s %-20s %-10s %-22s %-10s %-10s %-10s%n",
+              "No", "Tanggal", "Nama", "TTL", "Alamat", "Pekerjaan", "Nama Ortu",
+              "Nama", "TTL", "Alamat", "Pekerjaan", "Nama Ortu");
+      System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
 
+      boolean found = false;
+      for (SuratRekomendasiNumpangNikah data : suratRekomendasiNumpangNikahList) {
+        if (data.getTanggal().equals(cariTanggal)) {
+          found = true;
+          System.out.printf("%-4s %-10s %-10s %-14s %-10s %-10s %-20s %-10s %-22s %-10s %-10s %-10s%n",
+          data.getNomorSurat(),
+          data.getTanggal(),
+          data.getNamaMempelaiWanita(),
+          data.getTTLWanita(),
+          data.getAlamatWanita(),
+          data.getPekerjaanWanita(),
+          data.getNamaOrtuMempelaiWanita(),
+          data.getNamaMempelaiPria(),
+          data.getTTLPria(),
+          data.getAlamatPria(),
+          data.getPekerjaanPria(),
+          data.getNamaOrtuMempelaiPria());
+        }
+      }
+      System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+      if (!found) {
+        System.out.println("Tidak ditemukan surat yang diterbitkan pada tanggal " + tanggal);
+      }
+      System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    } else {
+      System.out.println("Belum ada surat rekomendasi numpang nikah yang terdaftar.");
+    }
   }
-
 }
