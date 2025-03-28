@@ -278,12 +278,12 @@ public class SuratKeteranganUsaha {
             return;
         }
         System.out.println("\n=== Daftar Surat Keterangan Usaha ===");
-        System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
+        System.out.printf("%-10s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s%n",
                 "Nomor Surat", "Nama", "NIK", "Jenis Kelamin",
                 "Tempat dan Tanggal Lahir", "Agama", "Kewarganegaraan", "Pekerjaan", "Alamat", "Nama Usaha");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for (SuratKeteranganUsaha sku : suratKeteranganUsahaList) {
-            System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",                    
+            System.out.printf("%-10s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s%n",                    
                     sku.getNomorSurat(),
                     sku.getNama(),
                     sku.getNik(),
@@ -295,7 +295,7 @@ public class SuratKeteranganUsaha {
                     sku.getAlamat(),
                     sku.getNamaUsaha());
                 }
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
 }

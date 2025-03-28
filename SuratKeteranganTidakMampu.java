@@ -235,12 +235,12 @@ public class SuratKeteranganTidakMampu {
             return;
         }
         System.out.println("\n=== Daftar Surat Keterangan Tidak Mampu ===");
-        System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",
+        System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",
                 "Nomor Surat", "Nama", "NIK", "Jenis Kelamin",
                 "Tempat dan Tanggal Lahir", "Status", "Alamat", "Pekerjaan");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for (SuratKeteranganTidakMampu sktm : suratKeteranganTidakMampuList) {
-            System.out.printf("%-15s %-15s %-15s %-20s %-20s %-20s %-20s%n",                    
+            System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",                    
                     sktm.getNomorSurat(),
                     sktm.getNama(),
                     sktm.getNik(),
@@ -250,7 +250,7 @@ public class SuratKeteranganTidakMampu {
                     sktm.getAlamat(),
                     sktm.getPekerjaan());
                 }
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
 
 }
