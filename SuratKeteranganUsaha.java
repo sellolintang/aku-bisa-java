@@ -101,12 +101,14 @@ public class SuratKeteranganUsaha {
     public void ShowOption() {
         boolean status = false;
         while (!status) {
-            System.out.println("\n\n====== SISTEM INFORMASI SURAT KETERANGAN USAHA ======");
+            System.out.println("====== SISTEM INFORMASI SURAT KETERANGAN USAHA ======");
             System.out.println("\nPILIH OPSI DIBAWAH INI:");
             System.out.println("1. Tambah Surat Keterangan Usaha");
-            System.out.println("2. Tampilkan Semua Surat Keterangan Usaha");
-            System.out.println("3. Edit Surat Keterangan Usaha");
-            System.out.println("4. Hapus Surat Keterangan Usaha");
+            System.out.println("2. Edit Surat Keterangan Usaha");
+            System.out.println("3. Hapus Surat Keterangan Usaha");
+            System.out.println("4. Cari Surat Keterangan Usaha");
+            System.out.println("5. Tampilkan Semua Surat Keterangan Usaha");
+            System.out.println("6. Tampilkan berdasar tanggal");
             System.out.println("0. Keluar");
             System.out.print("Pilih opsi: ");
             int choice = scanner.nextInt();
@@ -116,13 +118,19 @@ public class SuratKeteranganUsaha {
                     add();
                     break;
                 case 2:
-                    printAll();
-                    break;
-                case 3:
                     edit();
                     break;
-                case 4:
+                case 3:
                     delete();
+                    break;
+                case 4:
+                    search();
+                    break;
+                case 5:
+                    printAll();
+                    break;
+                case 6:
+                    // setDate();
                     break;
                 case 0:
                     status = true;
@@ -132,20 +140,11 @@ public class SuratKeteranganUsaha {
                     System.out.println("Opsi tidak valid, coba lagi.");
             }
         }
-    }  
-
-
-    public void search() {
-
     }
 
-    public void setDate() {
 
-    }
-
-    public void back() {
-
-    }
+    //public void back() {
+    //}
 
     public void add() {
         SuratKeteranganUsaha surat = new SuratKeteranganUsaha();
@@ -272,6 +271,34 @@ public class SuratKeteranganUsaha {
         }
     }
 
+    public void search() {
+        System.out.print("Masukan nomor surat yang dicari: ");
+        String tempNomorSurat = scanner.nextLine();
+        System.out.println("Daftar surat dengan nomor surat " + tempNomorSurat);
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        boolean found = false;
+        for (SuratKeteranganUsaha data : suratKeteranganUsahaList) {
+            if (data.getNomorSurat().equals(tempNomorSurat)) {
+                found = true;
+                System.out.printf("%-10s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s%n",
+                    data.getNomorSurat(),
+                    data.getNama(),
+                    data.getNik(),
+                    data.getJenisKelamin(),
+                    data.getTempatTanggalLahir(),
+                    data.getAgama(),
+                    data.getKewarganegaraan(),
+                    data.getPekerjaan(),
+                    data.getAlamat(),
+                    data.getNamaUsaha());
+            }
+        }
+        if (!found) {
+            System.out.println("Tidak ditemukan surat dengan nomor: " + tempNomorSurat);
+        }
+        System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
     public void printAll() {
         if (suratKeteranganUsahaList.isEmpty()) {
             System.out.println("Belum ada data surat keterangan usaha.");
@@ -297,5 +324,41 @@ public class SuratKeteranganUsaha {
                 }
         System.out.println("----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+
+/*
+    public void setDate() {
+        if (!suratNikahList.isEmpty()) {
+            System.out.print("Masukkan Tanggal Surat yang dicari: ");
+            String tanggal = scanner.nextLine();
+            System.out.println("Daftar surat yang diterbitkan pada tanggal " + tanggal);
+            System.out.println("------------------------------------------------------------------------------------------------------");
+            boolean found = false;
+            for (SuratKeteranganUsaha data : suratKeteranganUsahaList) {
+                if (data.getTanggalSurat().equals(tanggal)) {
+                    found = true;
+                    System.out.printf("%-10s %-20s %-20s %-20s %-30s %-20s %-20s %-20s %-20s %-20s%n",
+                        data.getNomorSurat(),
+                        data.getNama(),
+                        data.getNik(),
+                        data.getJenisKelamin(),
+                        data.getTempatTanggalLahir(),
+                        data.getAgama(),
+                        data.getKewarganegaraan(),
+                        data.getPekerjaan(),
+                        data.getAlamat(),
+                        data.getNamaUsaha());
+                }
+            }
+            if (!found) {
+                System.out.println("Tidak ditemukan surat yang diterbitkan pada tanggal " + tanggal);
+            }
+            System.out.println("------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("Belum ada surat masuk yang terdaftar.");
+        }
+    }
+ */
+
 
 }

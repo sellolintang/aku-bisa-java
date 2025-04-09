@@ -83,12 +83,14 @@ public class SuratKeteranganTidakMampu {
     public void ShowOption() {
         boolean status = false;
         while (!status) {
-            System.out.println("\n\n====== SISTEM INFORMASI SURAT KETERANGAN TIDAK MAMPU ======");
+            System.out.println("====== SISTEM INFORMASI SURAT KETERANGAN TIDAK MAMPU ======");
             System.out.println("\nPILIH OPSI DIBAWAH INI:");
             System.out.println("1. Tambah Surat Keterangan Tidak Mampu");
-            System.out.println("2. Tampilkan Semua Surat Keterangan Tidak Mampu");
-            System.out.println("3. Edit Surat Keterangan Tidak Mampu");
-            System.out.println("4. Hapus Surat Keterangan Tidak Mampu");
+            System.out.println("2. Edit Surat Keterangan Tidak Mampu");
+            System.out.println("3. Hapus Surat Keterangan Tidak Mampu");
+            System.out.println("4. Cari Surat Keterangan Tidak Mampu");
+            System.out.println("5. Tampilkan Semua Surat Keterangan Tidak Mampu");
+            System.out.println("6. Tampilkan berdasar tanggal");
             System.out.println("0. Keluar");
             System.out.print("Pilih opsi: ");
             int choice = scanner.nextInt();
@@ -98,13 +100,19 @@ public class SuratKeteranganTidakMampu {
                     add();
                     break;
                 case 2:
-                    printAll();
-                    break;
-                case 3:
                     edit();
                     break;
-                case 4:
+                case 3:
                     delete();
+                    break;
+                case 4:
+                    search();
+                    break;
+                case 5:
+                    printAll();
+                    break;
+                case 6:
+                    // setDate();
                     break;
                 case 0:
                     status = true;
@@ -117,18 +125,8 @@ public class SuratKeteranganTidakMampu {
     }
 
 
-
-    public void search() {
-
-    }
-
-    public void setDate() {
-
-    }
-
-    public void back() {
-
-    }
+    //public void back() {
+    //}
 
     public void add() {
         SuratKeteranganTidakMampu surat = new SuratKeteranganTidakMampu();
@@ -229,6 +227,34 @@ public class SuratKeteranganTidakMampu {
         }
     }
 
+
+    public void search() {
+        System.out.print("Masukan nomor surat yang dicari: ");
+        String tempNomorSurat = scanner.nextLine();
+        System.out.println("Daftar surat dengan nomor surat " + tempNomorSurat);
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        boolean found = false;
+        for (SuratKeteranganTidakMampu data : suratKeteranganTidakMampuList) {
+            if (data.getNomorSurat().equals(tempNomorSurat)) {
+                found = true;
+                System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",
+                        data.getNomorSurat(),
+                        data.getNama(),
+                        data.getNik(),
+                        data.getJenisKelamin(),
+                        data.getTempatTanggalLahir(),
+                        data.getStatus(),
+                        data.getAlamat(),
+                        data.getPekerjaan());
+            }
+        }
+        if (!found) {
+            System.out.println("Tidak ditemukan surat dengan nomor: " + tempNomorSurat);
+        }
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+    }
+
+
     public void printAll() {
         if (suratKeteranganTidakMampuList.isEmpty()) {
             System.out.println("Belum ada data surat keterangan tidak mampu.");
@@ -238,7 +264,7 @@ public class SuratKeteranganTidakMampu {
         System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",
                 "Nomor Surat", "Nama", "NIK", "Jenis Kelamin",
                 "Tempat dan Tanggal Lahir", "Status", "Alamat", "Pekerjaan");
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
         for (SuratKeteranganTidakMampu sktm : suratKeteranganTidakMampuList) {
             System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",                    
                     sktm.getNomorSurat(),
@@ -250,7 +276,40 @@ public class SuratKeteranganTidakMampu {
                     sktm.getAlamat(),
                     sktm.getPekerjaan());
                 }
-        System.out.println("--------------------------------------------------------------------------------------------------------------------------------------------------------------------");
+        System.out.println("------------------------------------------------------------------------------------------------------------------------------------------------------------------------------");
     }
+
+    /*
+    public void setDate() {
+        if (!suratNikahList.isEmpty()) {
+            System.out.print("Masukkan Tanggal Surat yang dicari: ");
+            String tanggal = scanner.nextLine();
+            System.out.println("Daftar surat yang diterbitkan pada tanggal " + tanggal);
+            System.out.println("------------------------------------------------------------------------------------------------------");
+            boolean found = false;
+            for (SuratKeteranganTidakMampu data : suratKeteranganTidakMampuList) {
+                if (data.getTanggalSurat().equals(tanggal)) {
+                    found = true;
+                    System.out.printf("%-20s %-20s %-20s %-20s %-30s %-20s %-20s %-20s%n",
+                            data.getNomorSurat(),
+                            data.getNama(),
+                            data.getNik(),
+                            data.getJenisKelamin(),
+                            data.getTempatTanggalLahir(),
+                            data.getStatus(),
+                            data.getAlamat(),
+                            data.getPekerjaan());
+                }
+            }
+            if (!found) {
+                System.out.println("Tidak ditemukan surat yang diterbitkan pada tanggal " + tanggal);
+            }
+            System.out.println("------------------------------------------------------------------------------------------------------");
+        } else {
+            System.out.println("Belum ada surat masuk yang terdaftar.");
+        }
+    } 
+ */
+
 
 }
